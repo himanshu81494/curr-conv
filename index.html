@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="Myapp">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="simple currency converter">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="HIMANSHU GAUTAM">
+
+    <title>currency converter</title>
+
+    <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+    <style type="text/css">
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+        }
+        
+    </style>
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1> CURR-CONV</h1>
+        </div>
+    </div>
+    
+
+    <div>
+        <div class="row">
+            <div class="col-xs-5 col-sm-5 col-md-5 col-md-offset-3">
+                <div class="panel panel-default" data-ng-controller="Ctrl">
+                    <div class="panel-body">
+                        <form action="" method="POST" role="form">
+                            <legend> ** </legend>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="">From</label>
+                                    <select ng-model="fromType" class="form-control" required data-ng-change="forExConvert()" ng-options="k for (k,v) in rates track by v">
+                                        <option value="">--Select--</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="">To</label>
+                                    <select ng-model="toType" class="form-control" required data-ng-change="forExConvert()" ng-options="k for (k,v) in rates track by v">
+                                        <option value="">--Select--</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="">Form Value</label>
+                                    <input type="number" class="form-control" placeholder="Enter value" data-ng-model="fromValue" data-ng-change="forExConvert()">
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="">ToValue</label>
+                                    <input type="number" class="form-control" placeholder="Enter value" data-ng-model="toValue" readonly="" data-ng-change="forExConvert()">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div data-ng-model="rates">
+        <ul>
+            <li data-ng-repeat="x in rates">
+                {{ x }}
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            By <a href="http://www.github.com/himanshu81494">Himanshu Gautam</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
